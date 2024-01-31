@@ -45,6 +45,9 @@ const Main = () => {
         pullingContent="Потяните вниз, чтобы обновить..."
       >
         <div className="swiper">
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
           <div className="container">
             {token ? (
               <div className="pt-5">
