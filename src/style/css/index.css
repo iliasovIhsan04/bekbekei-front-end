@@ -1,0 +1,252 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Thin.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-UltraLight.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Semibold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("../../fonts/Gilroy-Extrabold.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("../../fonts/Rubik-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Rubik, Gilroy, sans-serif;
+}
+
+:root {
+  --orange: #ff640d;
+  --green: #04c700;
+}
+
+.container {
+  width: 90% !important;
+  max-width: 784px !important;
+  margin: 0 auto !important;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto !important;
+  -khtml-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0px;
+  height: 0px;
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  width: 0px !important;
+  height: 0px !important;
+  background-color: transparent !important;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a,
+a:active,
+a:focus {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dowload.app {
+  display: none !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .dowload.play {
+    display: none !important;
+  }
+
+  .dowload.app {
+    display: block !important;
+  }
+
+  .specific .img_save form {
+    display: none !important;
+  }
+
+  .register_login {
+    bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  #footer {
+    bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .form_alls {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .row_one {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .row_two {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+
+  .acaunt_block_modal {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .btn_button {
+    margin-bottom: calc(env(safe-area-inset-bottom)) !important;
+  }
+
+  .all_shop {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 60px) !important;
+  }
+
+  .block_shop {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .guestions_block_all {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .get_details_block_all {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .special_block_all {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .my-information {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .order {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5px) !important;
+  }
+
+  .order > .acaunt_block_modal {
+    margin-bottom: 0 !important;
+  }
+
+  .new_block_all {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 30px) !important;
+  }
+}
