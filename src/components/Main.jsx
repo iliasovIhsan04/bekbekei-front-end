@@ -66,7 +66,7 @@ const Main = () => {
                   </div>
                   <div className="bonus_img">
                     <img src={data.user.qrimg} alt="" />
-                  </div>
+                  </div> 
                 </div>
               </div>
             ) : (

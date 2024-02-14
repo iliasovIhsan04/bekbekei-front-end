@@ -282,7 +282,7 @@ const ShopDetail = ({ data, setData }) => {
                     className="fi"
                     onClick={() => navigate(-1)}
                   />
-                  <h4 className="title_h5 all_title_one">Сортировка</h4>
+                  <h4 className="title_h5 all_title_one">Фильтр</h4>
                   <div></div>
                 </div>
               </div>
@@ -376,7 +376,7 @@ const ShopDetail = ({ data, setData }) => {
                       value="yes"
                       onClick={() => setFilter(false)}
                     />
-                    <h6 className="title_one m-lg-2">По умолчение</h6>
+                    <h6 className="title_one m-lg-2">По умолчанию</h6>
                   </div>
                   <div className="sort-wrap" onClick={() => handleSales()}>
                     <input

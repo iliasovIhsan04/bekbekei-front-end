@@ -264,7 +264,7 @@ const Settings = ({ Alert }) => {
               className="settings_title akaunt_remove"
               onClick={() => isOpenModal1()}
             >
-              Удалить акаунт
+              Удалить аккаунт
             </h5>
             {openModalSetting === true && (
               <div className="filters_oll" onClick={closeOpenModal}>
