@@ -8,7 +8,7 @@ import { FiFilter } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { url } from "../../Api";
 import Slider from "react-slider";
-
+import { useDispatch, useSelector } from "react-redux";
 const MIN = 40;
 const MAX = 500;
 const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
@@ -33,6 +33,9 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
   const [requests, setRequests] = useState({
     budget: [MIN, MAX],
   });
+
+  const dispatch = useDispatch();
+  const dataContr = useSelector((state) => state.users);
 
   const api = "product/list";
   useEffect(() => {
@@ -358,7 +361,7 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                   >
                     <img src={el.img} alt="" />
                     {localStorage.getItem(`activePlus_${el.id}`) ===
-                    `${el.id}` ? (  
+                    `${el.id}` ? (
                       <div className="hover_blocks">
                         {localStorage.getItem(`plus`) &&
                         JSON.parse(localStorage.getItem(`plus`))[el.id] ? (
@@ -376,21 +379,37 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                   <div className="all">
                     <h3 className="title_one mt">{el.title}</h3>
                     <div className="product-info">
-                      <div className="product-column">
-                        <span>1 {el.price_for}</span>
-                        <h2 className="price old">
-                          {el.old_price ? el.old_price : el.old_price} сом
-                        </h2>
-                      </div>
-                      {data?.user?.user_roll === "1" && el.old_price && (
+                      {dataContr?.user?.user_roll === "2" ? (
                         <div className="product-column">
-                          <span className="card-text">
-                            <IoCardOutline className="io5" /> По карте
-                          </span>
-                          <h2 className="price">{el.price} сом</h2>
+                          <span>1 {el.price_for}</span>
+                          <h2 className="price old">
+                            {el.old_price ? el.old_price : el.old_price} сом
+                          </h2>
                         </div>
+                      ) : (
+                        ""
                       )}
                     </div>
+                    {dataContr?.user?.user_roll === "1" ? (
+                      <div className="product-info">
+                        <div className="product-column">
+                          <span>1 {el.price_for}</span>
+                          <h2 className="price old">
+                            {el.old_price ? el.old_price : el.price} сом
+                          </h2>
+                        </div>
+                        {el.old_price && (
+                          <div className="product-column">
+                            <span className="card-text">
+                              <IoCardOutline className="io5" /> По карте
+                            </span>
+                            <h2 className="price">{el.price} сом</h2>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div className="flex mt-2">
                     <div

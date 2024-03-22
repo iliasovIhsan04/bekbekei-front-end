@@ -8,8 +8,6 @@ import "../style/css/main.css";
 
 const Footer = () => {
   const data = useSelector((state) => state.users);
-  const destination =
-    data?.user?.user_roll === "2" ? "/who-router/who-shop" : "/shop-all/shop";
   return (
     <div id="footer">
       <div className="nav_footer">
@@ -25,7 +23,7 @@ const Footer = () => {
         </div>
         <div className="flex_block">
           <NavLink
-            to={destination}
+            to="/who-router/who-shop"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             <BsShop className="fi ai" />

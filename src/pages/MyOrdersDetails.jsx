@@ -19,7 +19,7 @@ const MyOrdersDetails = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
-  const forOrder = orderDetail?.product_for_order
+  const forOrder = orderDetail?.product_for_order;
 
   return (
     <div id="modal">

@@ -259,7 +259,9 @@ p {
   font-size: 21px;
   color: var(--orange);
 }
-
+.product-column {
+  margin-bottom: 3px;
+}
 .block {
   width: 100%;
   border-radius: 20px;

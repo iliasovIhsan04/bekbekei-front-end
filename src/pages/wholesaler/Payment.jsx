@@ -21,10 +21,6 @@ export const Payment = ({ Alert }) => {
   const headers = {
     Authorization: `Token ${local}`,
   };
-  const handleChange = (e) => {
-    setAddress({ ...address, [e.target.name]: e.target.value });
-  };
-  const plusData = JSON.parse(localStorage.getItem("plus"));
   const shopCart = JSON.parse(localStorage.getItem("shopCart"));
 
   if (shopCart) {
@@ -75,6 +71,7 @@ export const Payment = ({ Alert }) => {
       if (response.data.response === true) {
         setIsLoading(false);
         shopCart.map((el) => localStorage.removeItem(`activePlus_${el.id}`));
+
         localStorage.removeItem("myData");
         localStorage.removeItem("cart");
         localStorage.removeItem("updatedOldPrice");

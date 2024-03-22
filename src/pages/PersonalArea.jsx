@@ -98,37 +98,31 @@ const PersonalArea = () => {
                 <IoIosArrowForward className="be" />
               </div>
             </div>
-            {data?.user.user_roll === "2" ? (
-              <div onClick={() => navigate(`/my-orders`)} className="area_all">
-                <div className="bell">
-                  <div className="bi">
-                    <LuScrollText className="be" />
-                  </div>
-                  <h3 className="mt-2">Мои заказы</h3>
+            <div onClick={() => navigate(`/my-orders`)} className="area_all">
+              <div className="bell">
+                <div className="bi">
+                  <LuScrollText className="be" />
                 </div>
-                <div className="lo">
-                  <IoIosArrowForward className="be" />
-                </div>
+                <h3 className="mt-2">Мои заказы</h3>
               </div>
-            ) : (
-              ""
-            )}
-            {data?.user?.user_roll === "2" && (
-              <div
-                onClick={() => navigate(`/delivery-address`)}
-                className="area_all"
-              >
-                <div className="bell">
-                  <div className="bi">
-                    <MdOutlineAddLocationAlt className="be" />
-                  </div>
-                  <h3 className="mt-2">Адрес доставки</h3>
-                </div>
-                <div className="lo">
-                  <IoIosArrowForward className="be" />
-                </div>
+              <div className="lo">
+                <IoIosArrowForward className="be" />
               </div>
-            )}
+            </div>
+            <div
+              onClick={() => navigate(`/delivery-address`)}
+              className="area_all"
+            >
+              <div className="bell">
+                <div className="bi">
+                  <MdOutlineAddLocationAlt className="be" />
+                </div>
+                <h3 className="mt-2">Адрес доставки</h3>
+              </div>
+              <div className="lo">
+                <IoIosArrowForward className="be" />
+              </div>
+            </div>
             <div onClick={() => navigate(`/application`)} className="area_all">
               <div className="bell">
                 <div className="bi">

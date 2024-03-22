@@ -53,7 +53,8 @@ const Product = () => {
                 <span className="old_price old_price_one datas_price">
                   {datas.wholesale_price
                     ? datas.wholesale_price
-                    : datas.wholesale_price} cом
+                    : datas.wholesale_price}{" "}
+                  cом
                 </span>
               </div>
             </div>

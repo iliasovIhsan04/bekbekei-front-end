@@ -24,7 +24,6 @@ const Settings = ({ Alert }) => {
   useEffect(() => {
     dispatch(auth());
   }, [dispatch]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [receiveEmails, setReceiveEmails] = useState(false);
   const [inputInfo, setInputInfo] = useState({
     email: "",
@@ -45,20 +44,6 @@ const Settings = ({ Alert }) => {
       });
     }
   }, [user]);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const [isWishSelected, setIsWishSelected] = useState("");
-  const handleCheckboxChange = (value) => {
-    if (selectedOption === value) {
-      setSelectedOption("");
-    } else {
-      setSelectedOption(value);
-    }
-  };
   const [selectedOption, setSelectedOption] = useState("");
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.value);
@@ -113,22 +98,7 @@ const Settings = ({ Alert }) => {
         </div>
         <div className="container">
           <div className="settings_block">
-            {/*<h5 className="settings_title">Блокировка карты</h5>*/}
-            {/*<p className="settings_kart">*/}
-            {/*  Ваша карта Bekbekei:{" "}*/}
-            {/*  <span className="green">2 7000 08661 04</span>*/}
-            {/*</p>*/}
-            {/*<div className="toggle_block">*/}
-            {/*  <p>Заблокировать карту</p>*/}
-            {/*  <label className="switch">*/}
-            {/*    <input type="checkbox" />*/}
-            {/*    <span className="slider_toggle round"></span>*/}
-            {/*  </label>*/}
-            {/*</div>*/}
             <h5 className="settings_title">Уведомления</h5>
-            {/* <p className="settings_kart">
-              Акциялар жана атайын сунуштар тууралуу билдирме алыныз
-            </p> */}
             <div className="toggle_block">
               <p>Получать уведомления</p>
               <label className="switch">
