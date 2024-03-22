@@ -5,6 +5,7 @@ import { LiaQuestionCircleSolid } from "react-icons/lia";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import Loading from "../UI/Loading/Loading";
+import OtpInput from "otp-input-react";
 import {
   registerFailure,
   registerSuccess,
@@ -83,14 +84,15 @@ const Activation = ({ Alert }) => {
         <div className="activation">
           <p>Введитe код подтверждения из CMC</p>
           <form onSubmit={handleSubmit}>
-            <input
-              style={{ textAlign: "center" }}
-              className="input_form"
+            <OtpInput
               value={code}
-              type="number"
-              placeholder="Введите код"
-              onChange={(e) => setCode(e.target.value)}
-            />
+              onChange={(value) => setCode(value)}
+              OTPLength={6}
+              OtpType="number"
+              disabled={false}
+              autoFocus
+              className="otp_container"
+            ></OtpInput>
             {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={loading}

@@ -1479,7 +1479,17 @@ input#file-upload-button {
   left: 45px;
   animation: lds-ellipsis3 0.6s infinite;
 }
-
+.otp_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.otp_container input {
+  width: 40px !important;
+  height: 40px !important;
+  outline: none;
+  margin: 0 10px 0 0 !important;
+}
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);

@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { url } from "../Api";
+import OtpInput from "otp-input-react";
 
 const ActivationCode = ({ Alert }) => {
   const navigate = useNavigate();
@@ -68,14 +69,15 @@ const ActivationCode = ({ Alert }) => {
         <div className="activation">
           <p>Введите код, который мы вам отправили на сообщение</p>
           <form onSubmit={handleCodeSubmit}>
-            <input
-              style={{ textAlign: "center" }}
-              className="input_form"
+            <OtpInput
               value={code}
-              type="number"
-              placeholder="Введите код"
-              onChange={(e) => setCode(e.target.value)}
-            />
+              onChange={(value) => setCode(value)}
+              OTPLength={6}
+              OtpType="number"
+              disabled={false}
+              autoFocus
+              className="otp_container"
+            ></OtpInput>
             {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={isloading}
