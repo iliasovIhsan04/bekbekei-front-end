@@ -9,9 +9,17 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { url } from "../../Api";
 import Slider from "react-slider";
 import { useDispatch, useSelector } from "react-redux";
+import Modal from "../../UI/Modal/Modal";
 const MIN = 40;
 const MAX = 500;
-const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
+const WhoShopDetail = ({
+  data,
+  setData,
+  handlePlus,
+  handleMinus,
+  modalSorting,
+  setmodalSorting,
+}) => {
   const [tabs, setTabs] = useState([]);
   const { cat, name } = useParams();
   const [query, setQuery] = useState([]);
@@ -19,8 +27,6 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
   const [lastClicked, setLastClicked] = useState("dataClicks");
   const navigate = useNavigate();
   const [sub_cat, setSubCat] = useState(0);
-  const [title, setTitle] = useState("");
-  const [filter, setFilter] = useState(false);
   const [filters, setFilters] = useState(false);
   const [search, setSearch] = useState(false);
   const [all, setAll] = useState(0);
@@ -263,7 +269,7 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                 <div className="dnow_one" />
                 <div
                   className="dnow d-flex align-items-center justify-content-center"
-                  onClick={() => setFilter(true)}
+                  onClick={() => setmodalSorting(true)}
                 >
                   <HiOutlineArrowsUpDown className="icons" />
                   <h6 className="title_one mt_one">Сортировка</h6>
@@ -489,8 +495,8 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
         data.length > 0 &&
         data.map((el) => (
           <div>
-            {filter === true && (
-              <div className="filters_oll" onClick={() => setFilter(false)}>
+            {modalSorting && (
+              <Modal setModal={setmodalSorting}>
                 <div className="order" onClick={(e) => e.stopPropagation()}>
                   <div className="container">
                     <div className="d-flex justify-content-between">
@@ -502,7 +508,7 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                         name="wp-comment-cookies-consent"
                         type="checkbox"
                         value="yes"
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <h6 className="title_one m-lg-2">По умолчение</h6>
                     </div>
@@ -512,7 +518,7 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                         name="popular-sort"
                         type="checkbox"
                         value="yes"
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <label
                         htmlFor="popular-checkbox"
@@ -523,14 +529,14 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                     </div>
                     <div
                       className="sort-wrap"
-                      onClick={handlePrice || setFilter(false)}
+                      onClick={handlePrice || setmodalSorting(false)}
                     >
                       <input
                         id="wp-comment-cookies-consent"
                         name="wp-comment-cookies-consent"
                         type="checkbox"
                         value="yes"
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <label
                         htmlFor="popular-checkbox"
@@ -541,14 +547,14 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                     </div>
                     <div
                       className="sort-wrap"
-                      onClick={handlePriceMinus || setFilter(false)}
+                      onClick={handlePriceMinus || setmodalSorting(false)}
                     >
                       <input
                         id="wp-comment-cookies-consent"
                         name="wp-comment-cookies-consent"
                         type="checkbox"
                         value="yes"
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <label
                         htmlFor="popular-checkbox"
@@ -559,14 +565,14 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                     </div>
                     <div
                       className="sort-wrap"
-                      onClick={handleTitle || setFilter(false)}
+                      onClick={handleTitle || setmodalSorting(false)}
                     >
                       <input
                         id="wp-comment-cookies-consent"
                         name="wp-comment-cookies-consent"
                         type="checkbox"
                         value="yes"
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <label
                         htmlFor="popular-checkbox"
@@ -577,14 +583,14 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                     </div>
                     <div
                       className="sort-wrap"
-                      onClick={handleTitleMinus || setFilter(false)}
+                      onClick={handleTitleMinus || setmodalSorting(false)}
                     >
                       <input
                         id="wp-comment-cookies-consent"
                         name="wp-comment-cookies-consent"
                         type="checkbox"
                         value={el.title}
-                        onClick={() => setFilter(false)}
+                        onClick={() => setmodalSorting(false)}
                       />
                       <label
                         htmlFor="popular-checkbox"
@@ -595,7 +601,7 @@ const WhoShopDetail = ({ data, setData, handlePlus, handleMinus }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Modal>
             )}
           </div>
         ))}

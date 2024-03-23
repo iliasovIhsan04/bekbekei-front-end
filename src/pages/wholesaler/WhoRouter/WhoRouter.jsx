@@ -10,6 +10,8 @@ const App = ({ count }) => {
   const [cart, setCart] = useState([]);
   const [shopCart, setShopCart] = useState([]);
   const [plus, setPlus] = useState({});
+  const [modalSorting, setmodalSorting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -104,6 +106,8 @@ const App = ({ count }) => {
               plus={plus}
               handlePlus={handlePlus}
               handleMinus={handleMinus}
+              modalSorting={success}
+              setmodalSorting={setSuccess}
             />
           }
         />
