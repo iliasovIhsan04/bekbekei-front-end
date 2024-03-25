@@ -173,7 +173,9 @@ h6 {
   outline: none;
   font-size: 16px;
 }
-
+.input_form:focus {
+  border: 1px solid #191919;
+}
 .input_form::placeholder {
   font-size: 14px;
   font-weight: 400;

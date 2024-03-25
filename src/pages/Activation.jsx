@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import bekbekei from "../img/bekbekei-h-logo.svg";
 import { LiaQuestionCircleSolid } from "react-icons/lia";
@@ -62,11 +62,18 @@ const Activation = ({ Alert }) => {
         }
         setLoading(false);
       } catch (error) {
+        setError(error);
         dispatch(registerFailure(error.message));
       }
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      Alert("Ведите только цифры!", "error");
+    }
+  }, [error]);
 
   return (
     <div id="modal">
@@ -93,7 +100,6 @@ const Activation = ({ Alert }) => {
               autoFocus
               className="otp_container"
             ></OtpInput>
-            {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={loading}
               style={{ marginTop: 20 }}

@@ -172,6 +172,9 @@ a:focus {
 .dowload.app {
   display: none !important;
 }
+input:focus {
+  border: 1px solid #191919 !important;
+}
 
 @supports (-webkit-touch-callout: none) {
   .dowload.play {

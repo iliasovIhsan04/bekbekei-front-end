@@ -966,7 +966,6 @@ input#file-upload-button {
   border: none !important;
   background: #e9ecef;
 }
-
 .new_button {
   border: none;
   color: #fff;
@@ -975,7 +974,6 @@ input#file-upload-button {
   background: #8d99ae;
   margin-top: 30px;
 }
-
 /* MyCouponDetails */
 .coupon_details {
   display: flex;

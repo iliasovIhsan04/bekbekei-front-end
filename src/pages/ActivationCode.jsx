@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiArrowLongLeft } from "react-icons/hi2";
 import bekbekei from "../img/bekbekei-h-logo.svg";
 import { LiaQuestionCircleSolid } from "react-icons/lia";
@@ -22,36 +22,46 @@ const ActivationCode = ({ Alert }) => {
 
   const handleCodeSubmit = async (event) => {
     event.preventDefault();
-    const storedPhone = JSON.parse(localStorage.getItem("phone"));
-    setIsLoading(true);
-    let activationCodeCredential = {
-      phone: storedPhone,
-      code,
-    };
-    try {
-      const response = await axios.post(
-        url + "/auth/reset-password-verify",
-        activationCodeCredential
-      );
-      dispatch(registerSuccess(response.data));
-      if (response.data.response === true) {
-        navigate("/personal/reset-password");
+    if (code.length === 6) {
+      const storedPhone = JSON.parse(localStorage.getItem("phone"));
+      setIsLoading(true);
+      let activationCodeCredential = {
+        phone: storedPhone,
+        code,
+      };
+      try {
+        const response = await axios.post(
+          url + "/auth/reset-password-verify",
+          activationCodeCredential
+        );
+        dispatch(registerSuccess(response.data));
+        if (response.data.response === true) {
+          navigate("/personal/reset-password");
+        }
+        setIsLoading(false);
+        if (response.data.response === false) {
+          Alert(response.data.message, "error");
+        }
+        if (response.data.code) {
+          setError(response.data);
+        }
+        if (response.data.token) {
+          localStorage.setItem("token_block", response.data.token);
+        }
+      } catch (error) {
+        dispatch(registerFailure(error.message));
+        setIsLoading(false);
       }
-      setIsLoading(false);
-      if (response.data.response === false) {
-        Alert(response.data.message, "error");
-      }
-      if (response.data.code) {
-        setError(response.data);
-      }
-      if (response.data.token) {
-        localStorage.setItem("token_block", response.data.token);
-      }
-    } catch (error) {
-      dispatch(registerFailure(error.message));
-      setIsLoading(false);
+    } else {
+      Alert("Заполните все поля!", "error");
     }
   };
+
+  useEffect(() => {
+    if (error.code) {
+      Alert("Ведите только цифры!", "error");
+    }
+  }, [error.code]);
 
   return (
     <div id="modal">
@@ -78,7 +88,6 @@ const ActivationCode = ({ Alert }) => {
               autoFocus
               className="otp_container"
             ></OtpInput>
-            {error.code && <p className="red">{error.code}</p>}
             <button
               disabled={isloading}
               style={{ marginTop: 20 }}
